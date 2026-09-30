@@ -2862,3 +2862,98 @@ body {
             .01ms !important;
     }
 }
+
+
+/* =====================================================
+   TIMELINE REMOVED
+===================================================== */
+
+
+/* =====================================================
+   LETTER BUTTON FIX
+===================================================== */
+
+.letter-next {
+    position: relative;
+    z-index: 10001;
+}
+
+.envelope.open ~ .letter-next {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    margin-top: 0;
+    z-index: 10001;
+}
+
+.envelope.open ~ .letter-next:hover {
+    transform: translateX(-50%) translateY(-2px);
+}
+
+
+/* =====================================================
+   CENTERED LETTER PAPER
+===================================================== */
+
+.envelope.open .envelope-paper {
+    position: fixed;
+    width: min(560px, 90vw);
+    height: min(500px, 72vh);
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    z-index: 9999;
+    opacity: 1;
+    pointer-events: auto;
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.55),
+        0 0 80px rgba(255,131,183,.12);
+}
+
+
+/* =====================================================
+   MOBILE LETTER
+===================================================== */
+
+@media (max-width: 750px) {
+
+    .envelope.open .envelope-paper {
+        width: 90vw;
+        height: min(500px, 68vh);
+        max-height: 500px;
+
+        left: 50%;
+        top: 50%;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    .envelope.open ~ .letter-next {
+        bottom: 16px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .envelope.open .envelope-paper {
+        width: 92vw;
+        height: 65vh;
+        max-height: 460px;
+    }
+
+}
